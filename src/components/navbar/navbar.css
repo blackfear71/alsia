@@ -11,10 +11,8 @@
     height: 80px;
 }
 
-.alsia-navbar-title {
-}
-
 .alsia-navbar-search-bar {
+    text-align: center;
     width: 100%;
 }
 
