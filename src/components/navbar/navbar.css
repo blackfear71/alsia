@@ -1,5 +1,5 @@
 .alsia-navbar {
-    position: fixed;
+    /* position: fixed; TODO : style à revoir, sortir le style de App.css aussi */
     display: flex;
     align-items: center;
     width: 100%;
