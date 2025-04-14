@@ -11,9 +11,6 @@ const Navbar = () => {
       {/* Logo */}
       <img src={alsiaLogo} alt="alsia" className="alsia-navbar-logo" />
 
-      {/* Titre */}
-      <span className="alsia-navbar-title">ALSIA</span>
-
       {/* Barre de recherche */}
       <div className="alsia-navbar-search-bar">
         <SearchBar />
