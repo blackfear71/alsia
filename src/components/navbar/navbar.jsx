@@ -1,13 +1,27 @@
 import React from "react";
 import alsiaLogo from '../../assets/images/alsia.png';
+import userLogo from '../../assets/images/user.png';
+import './navbar.css';
+import SearchBar from "../searchBar/searchBar";
 
 const Navbar = () => {
   return (
-    <nav className="navbar navbar-dark bg-dark px-3">
-      <span className="navbar-brand mb-0 h1 d-flex align-items-center">
-        <img src={alsiaLogo} alt="alsia" height="80" className="me-2" />
-        ALSIA
-      </span>
+    <nav className="alsia-navbar">
+
+      {/* Logo */}
+      <img src={alsiaLogo} alt="alsia" className="alsia-navbar-logo" />
+
+      {/* Titre */}
+      <span className="alsia-navbar-title">ALSIA</span>
+
+      {/* Barre de recherche */}
+      <div className="alsia-navbar-search-bar">
+        <SearchBar />
+      </div>
+
+      {/* Utilisateur */}
+      <img src={userLogo} alt="user" className="alsia-navbar-user" />
+
     </nav>
   );
 };

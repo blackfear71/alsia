@@ -1,0 +1,24 @@
+.alsia-navbar {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    background-color: white;
+    box-shadow: 0 1px 3px #d3d3d3;
+}
+
+.alsia-navbar-logo {
+    height: 80px;
+}
+
+.alsia-navbar-title {
+}
+
+.alsia-navbar-search-bar {
+    width: 100%;
+}
+
+.alsia-navbar-user {
+    height: 40px;
+    margin-right: 20px;
+}
