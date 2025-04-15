@@ -1,6 +1,6 @@
 import { ajax } from 'rxjs/ajax';
 
-const API_URL = 'http://localhost:3000/backend'; //process.env.REACT_APP_API_URL || 'http://localhost:3000/api';
+const API_URL = 'http://localhost/alsia/backend'; //process.env.REACT_APP_API_URL || 'http://localhost:3000/api';
 
 /**
  * Service class for managing projects from the API.

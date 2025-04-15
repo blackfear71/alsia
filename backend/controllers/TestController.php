@@ -1,5 +1,5 @@
 <?php
-require_once '../models/Test.php';
+require_once 'models/Test.php';
 
 class TestController
 {

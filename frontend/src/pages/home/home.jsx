@@ -8,6 +8,22 @@ const Home = () => {
   const [test, setTest] = useState([]);
 
   useEffect(() => {
+    // fetch("http://localhost:3000/backend/tests.php")
+    // .then((res) => res.json())
+    // .then((data) => {
+    //   console.log("Réponse du backend :", data);
+    //   setTest(data.response);
+    // })
+    // .catch((err) => {
+    //   console.error("Erreur API :", err);
+    // });
+
+    // fetch("http://localhost/alsia/backend/tests")
+    //   .then(res => res.json())
+    //   .then(data => console.log(data))
+    //   .catch(err => console.error("Erreur fetch:", err));
+
+
     const testService = new TestService();
 
     const subscriptionTest = testService.getTest();
@@ -15,8 +31,6 @@ const Home = () => {
     combineLatest([subscriptionTest])
       .pipe(
         map(([dataTest]) => {
-          console.log(dataTest);
-
           setTest(dataTest.response);
         }),
         take(1),
