@@ -1,12 +1,14 @@
 <?php
-class Database {
+class Database
+{
     private $host = "localhost";
     private $db_name = "alsia_db";
     private $username = "root";
-    private $password = "";
+    private $password = "root";
     public $conn;
 
-    public function getConnection() {
+    public function getConnection()
+    {
         $this->conn = null;
         try {
             $this->conn = new PDO(
@@ -15,7 +17,7 @@ class Database {
                 $this->password
             );
             $this->conn->exec("set names utf8");
-        } catch(PDOException $exception) {
+        } catch (PDOException $exception) {
             echo "Erreur de connexion : " . $exception->getMessage();
         }
 

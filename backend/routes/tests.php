@@ -1,6 +1,6 @@
 <?php
 require_once '../config/database.php';
-require_once '../controllers/ProduitController.php';
+require_once '../controllers/TestController.php';
 
 $database = new Database();
 $db = $database->getConnection();
