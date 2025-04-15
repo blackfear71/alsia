@@ -14,6 +14,6 @@ switch ($request) {
 
     default:
         http_response_code(404);
-        echo json_encode(["message" => "Not found, tu es sur index.php"]);
+        echo json_encode(["message" => "Not found"]);
         break;
 }
