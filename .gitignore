@@ -3,8 +3,6 @@
 # dependencies
 /frontend/node_modules
 /frontend/.pnp
-/node_modules
-/.pnp
 .pnp.js
 
 # testing
