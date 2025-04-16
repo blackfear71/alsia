@@ -1,24 +1,20 @@
 import React from "react";
-import alsiaLogo from '../../assets/images/alsia.png';
-import userLogo from '../../assets/images/user.png';
-import './navbar.css';
+import alsiaLogo from "../../assets/images/alsia.png";
+import { FaUserCircle } from "react-icons/fa";
+import "./navbar.css";
 import SearchBar from "../searchBar/searchBar";
 
 const Navbar = () => {
   return (
-    <nav className="alsia-navbar">
-
+    <nav className="navbar-container">
       {/* Logo */}
-      <img src={alsiaLogo} alt="alsia" className="alsia-navbar-logo" />
+      <img src={alsiaLogo} alt="alsia" className="navbar-logo" />
 
       {/* Barre de recherche */}
-      <div className="alsia-navbar-search-bar">
-        <SearchBar />
-      </div>
+      <SearchBar />
 
       {/* Utilisateur */}
-      <img src={userLogo} alt="user" className="alsia-navbar-user" />
-
+      <FaUserCircle size={40} color="#BE5031" className="navbar-user" />
     </nav>
   );
 };

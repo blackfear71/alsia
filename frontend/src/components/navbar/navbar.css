@@ -1,22 +1,19 @@
-.alsia-navbar {
-    /* position: fixed; TODO : style à revoir, sortir le style de App.css aussi */
+.navbar-container {
+    position: fixed;
+    z-index: 1;
     display: flex;
+    justify-content: space-between;
     align-items: center;
     width: 100%;
     background-color: white;
     box-shadow: 0 1px 3px #d3d3d3;
 }
 
-.alsia-navbar-logo {
+.navbar-logo {
     height: 80px;
 }
 
-.alsia-navbar-search-bar {
-    text-align: center;
-    width: 100%;
-}
-
-.alsia-navbar-user {
-    height: 40px;
+.navbar-user {
+    margin-left: 20px;
     margin-right: 20px;
 }

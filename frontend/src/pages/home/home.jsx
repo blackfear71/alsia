@@ -28,7 +28,7 @@ const Home = () => {
   
   return (
     <div>
-      <Link to="/">Accueil</Link> | <Link to="/test">Contact</Link>
+      <Link to="/">Accueil</Link> | <Link to="/test">Test</Link>
       <h1>Page d'accueil</h1>
       <div style={{display: "flex", justifyContent: "space-evenly"}}>
         {test &&
