@@ -5,6 +5,7 @@
 .search-bar-group {
   font-family: "Quicksand-Regular", sans-serif;
   border-radius: 50px !important;
+  height: 45px;
 }
 
 .search-bar-button {

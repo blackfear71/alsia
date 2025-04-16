@@ -8,7 +8,7 @@ const SearchBar = ({ placeholder = "Rechercher..." }) => {
     <div className="search-bar-container">
       <InputGroup className="search-bar-group">
         <Button variant="outline-secondary" className="search-bar-button">
-          <FaSearch />
+          <FaSearch size={20} />
         </Button>
         <Form.Control placeholder={placeholder} className="search-bar-text" />
       </InputGroup>
