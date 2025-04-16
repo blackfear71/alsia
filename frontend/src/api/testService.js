@@ -11,7 +11,7 @@ class TestService {
      * 
      * @param {*} projetId The project identifier.
      */
-    getTest = (projetId) => {
+    getTest = () => {
         const url = `${API_URL}/tests`;
         // const headers = { 'l': this.login, 't': this.token, 'Accept-Language': this.langueId };
         
