@@ -28,11 +28,6 @@ class Router
         $this->addRoute('POST', $path, $callback);
     }
 
-    public function put($path, $callback)
-    {
-        $this->addRoute('PUT', $path, $callback);
-    }
-
     private function addRoute($method, $path, $callback)
     {
         $pattern = preg_replace('#:([\w]+)#', '(?P<\1>[^/]+)', $path);

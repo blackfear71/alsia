@@ -84,7 +84,12 @@ const Home = () => {
 
     return (
         <div>
-            <Link to="/">Accueil</Link> | <Link to="/testPage/2">Test</Link>
+            <Link to="/">Accueil</Link>
+            {test.length > 0 && (
+                <span>
+                    |<Link to={`/testPage/${test[0].test_id}`}>Test</Link>
+                </span>
+            )}
             <h1>Page d'accueil</h1>
             <TestForm
                 formData={formData}

@@ -34,7 +34,8 @@ const TestFeature = () => {
 
     return (
         <div>
-            <Link to="/">Accueil</Link> | <Link to="/testPage/2">Test</Link>
+            <Link to="/">Accueil</Link>|
+            <Link to={`/testPage/${test_id}`}>Test</Link>
             <h1>Page de test</h1>
             <div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
                 {test && (
