@@ -11,8 +11,15 @@ class TestService {
      *
      * @param {*} projetId The project identifier.
      */
-    getTest = () => {
-        const url = `${API_URL}/tests`;
+    getAllTest = () => {
+        const url = `${API_URL}/tests/all`;
+        // const headers = { 'l': this.login, 't': this.token, 'Accept-Language': this.langueId };
+
+        return ajax.get(url); //, headers);
+    };
+
+    getOneTest = (test_id) => {
+        const url = `${API_URL}/tests/one/${test_id}`;
         // const headers = { 'l': this.login, 't': this.token, 'Accept-Language': this.langueId };
 
         return ajax.get(url); //, headers);

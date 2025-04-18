@@ -15,7 +15,7 @@ const Home = () => {
     useEffect(() => {
         const testService = new TestService();
 
-        const subscriptionTest = testService.getTest();
+        const subscriptionTest = testService.getAllTest();
 
         combineLatest([subscriptionTest])
             .pipe(
