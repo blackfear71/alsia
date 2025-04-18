@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { Link } from 'react-router-dom';
 
@@ -25,25 +25,24 @@ const Home = () => {
                 take(1),
                 catchError(() => {
                     return of();
-                })
+                }),
             )
             .subscribe();
     }, []);
-  
+
     return (
         <div>
             <Link to="/">Accueil</Link> | <Link to="/testPage">Test</Link>
             <h1>Page d'accueil</h1>
-            <div style={{display: 'flex', justifyContent: 'space-evenly'}}>
+            <div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
                 {test &&
-                    test.map((p) => 
+                    test.map((p) => (
                         <HomeCard
                             key={p.test_id}
                             name={p.name}
                             description={p.description}
                         />
-                    )
-                }
+                    ))}
             </div>
         </div>
     );

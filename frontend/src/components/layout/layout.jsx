@@ -8,7 +8,7 @@ const Layout = () => {
     return (
         <div>
             <Navbar />
-      
+
             <div className="layout-outlet-container">
                 <Outlet />
             </div>

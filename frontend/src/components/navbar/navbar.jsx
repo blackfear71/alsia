@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { FaUserCircle } from 'react-icons/fa';
 
 import alsiaLogo from '../../assets/images/alsia.png';
