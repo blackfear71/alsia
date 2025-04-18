@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 import TestService from '../../api/testService';
 
@@ -10,12 +10,14 @@ import { combineLatest, of } from 'rxjs';
 import { catchError, map, take } from 'rxjs/operators';
 
 const TestFeature = () => {
+    const { test_id } = useParams();
+
     const [test, setTest] = useState([]);
 
     useEffect(() => {
         const testService = new TestService();
 
-        const subscriptionTest = testService.getOneTest(2);
+        const subscriptionTest = testService.getOneTest(test_id);
 
         combineLatest([subscriptionTest])
             .pipe(
@@ -32,7 +34,7 @@ const TestFeature = () => {
 
     return (
         <div>
-            <Link to="/">Accueil</Link> | <Link to="/testPage">Test</Link>
+            <Link to="/">Accueil</Link> | <Link to="/testPage/2">Test</Link>
             <h1>Page de test</h1>
             <div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
                 {test && (

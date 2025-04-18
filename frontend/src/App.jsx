@@ -17,7 +17,10 @@ function App() {
                         <Route index element={<Home />} />
 
                         {/* Page de test */}
-                        <Route path="testPage" element={<TestFeature />} />
+                        <Route
+                            path="testPage/:test_id"
+                            element={<TestFeature />}
+                        />
                     </Route>
                 </Routes>
             </BrowserRouter>

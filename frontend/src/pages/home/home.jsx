@@ -84,7 +84,7 @@ const Home = () => {
 
     return (
         <div>
-            <Link to="/">Accueil</Link> | <Link to="/testPage">Test</Link>
+            <Link to="/">Accueil</Link> | <Link to="/testPage/2">Test</Link>
             <h1>Page d'accueil</h1>
             <TestForm
                 formData={formData}
