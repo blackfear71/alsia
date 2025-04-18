@@ -8,6 +8,9 @@ import globals from 'globals';
 
 /** @type {import("eslint").Linter.FlatConfig[]} */
 export default [
+    {
+        ignores: ['build/**'],
+    },
     js.configs.recommended,
     {
         files: ['src/**/*.jsx', '**/*.test.jsx', '**/*.test.js'],
