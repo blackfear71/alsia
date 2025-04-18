@@ -4,11 +4,6 @@ const TestForm = ({ formData, setFormData, onSubmit }) => {
         setFormData((prev) => ({ ...prev, [name]: value }));
     };
 
-    const handleAdd = () => {
-        console.log('Données ajoutées :', formData);
-        onSubmit(formData);
-    };
-
     return (
         <div>
             <input
@@ -25,7 +20,7 @@ const TestForm = ({ formData, setFormData, onSubmit }) => {
                 value={formData.description}
                 onChange={handleChange}
             />
-            <button onClick={handleAdd}>Ajouter</button>
+            <button onClick={() => onSubmit(formData)}>Ajouter</button>
         </div>
     );
 };

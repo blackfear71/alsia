@@ -48,6 +48,7 @@ const Home = () => {
                 }),
                 take(1),
                 catchError((err) => {
+                    // TODO : voir pour l'affichage d'un bandeau avec erreur générique
                     console.error(err);
                     return of();
                 }),
@@ -70,7 +71,6 @@ const Home = () => {
             .pipe(
                 switchMap(() => testService.getAllTest()),
                 map((dataTest) => {
-                    console.log(dataTest.response);
                     setTest(dataTest.response);
                 }),
                 take(1),
