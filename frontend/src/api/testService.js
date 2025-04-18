@@ -19,12 +19,28 @@ class TestService {
     };
 
     getOneTest = (test_id) => {
-        const url = `${API_URL}/tests/one/${test_id}`;
+        const url = `${API_URL}/tests/find/${test_id}`;
         // const headers = { 'l': this.login, 't': this.token, 'Accept-Language': this.langueId };
 
         return ajax.get(url); //, headers);
     };
 
+    insertTest = (body) => {
+        const url = `${API_URL}/tests/create`;
+        // const headers = { 'l': this.login, 't': this.token, 'Content-Type': 'application/json', 'Accept-Language': this.langueId };
+
+        // TODO : à voir pour passer les headers comme ça
+        // TODO : prévoir des objets à l'image de la table pour passer le body (front ou back ?)
+
+        return ajax.post(url, body); //, headers);
+    };
+
+    deleteTest = (test_id) => {
+        const url = `${API_URL}/tests/delete/${test_id}`;
+        // const headers = { 'l': this.login, 't': this.token, 'Content-Type': 'application/json', 'Accept-Language': this.langueId };
+
+        return ajax.delete(url); //, headers);
+    };
     /**
      * Update the definition of the project
      *
