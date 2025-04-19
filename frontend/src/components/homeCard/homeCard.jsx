@@ -1,10 +1,29 @@
+import { useState } from 'react';
+
 import { Button, Card } from 'react-bootstrap';
 
 import alsiaLogo from '../../assets/images/alsia.png';
 
 import './homeCard.css';
 
-const HomeCard = ({ test_id, name, description, onDelete }) => {
+const HomeCard = ({ test, formUpdate, setFormUpdate, onUpdate, onDelete }) => {
+    const [isUpdating, setIsUpdating] = useState(false);
+
+    const onClickUpdating = () => {
+        setFormUpdate({ name: test.name, description: test.description });
+        setIsUpdating(!isUpdating);
+    };
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormUpdate((prev) => ({ ...prev, [name]: value }));
+    };
+
+    const handleUpdateClick = () => {
+        onUpdate(test.test_id);
+        setIsUpdating(false);
+    };
+
     return (
         <Card style={{ width: '18rem' }} bg="danger" text="white">
             <Card.Img
@@ -13,10 +32,42 @@ const HomeCard = ({ test_id, name, description, onDelete }) => {
                 style={{ background: 'white' }}
             />
             <Card.Body>
-                <Card.Title>{name}</Card.Title>
-                <Card.Text>{description}</Card.Text>
+                {isUpdating ? (
+                    <div>
+                        <input
+                            type="text"
+                            name="name"
+                            placeholder="Nom"
+                            value={formUpdate.name}
+                            onChange={handleChange}
+                        />
+                        <input
+                            type="text"
+                            name="description"
+                            placeholder="Description"
+                            value={formUpdate.description}
+                            onChange={handleChange}
+                        />
+                        <button onClick={() => handleUpdateClick()}>
+                            Valider
+                        </button>
+                        <button onClick={() => setIsUpdating(!isUpdating)}>
+                            Annuler
+                        </button>
+                    </div>
+                ) : (
+                    <div>
+                        <Card.Title>{test.name}</Card.Title>
+                        <Card.Text>{test.description}</Card.Text>
+                        {formUpdate && (
+                            <button onClick={() => onClickUpdating()}>
+                                Modifier
+                            </button>
+                        )}
+                    </div>
+                )}
             </Card.Body>
-            <Button variant="primary" onClick={() => onDelete(test_id)}>
+            <Button variant="primary" onClick={() => onDelete(test.test_id)}>
                 Supprimer
             </Button>
         </Card>

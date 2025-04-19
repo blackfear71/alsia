@@ -35,6 +35,13 @@ class TestService {
         return ajax.post(url, body); //, headers);
     };
 
+    updateTest = (test_id, body) => {
+        const url = `${API_URL}/tests/update/${test_id}`;
+        // const headers = { 'l': this.login, 't': this.token, 'Content-Type': 'application/json', 'Accept-Language': this.langueId };
+
+        return ajax.patch(url, body); //, headers);
+    };
+
     deleteTest = (test_id) => {
         const url = `${API_URL}/tests/delete/${test_id}`;
         // const headers = { 'l': this.login, 't': this.token, 'Content-Type': 'application/json', 'Accept-Language': this.langueId };

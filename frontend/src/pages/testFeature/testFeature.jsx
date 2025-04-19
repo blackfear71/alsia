@@ -38,13 +38,7 @@ const TestFeature = () => {
             <Link to={`/testPage/${test_id}`}>Test</Link>
             <h1>Page de test</h1>
             <div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
-                {test && (
-                    <HomeCard
-                        key={test.test_id}
-                        name={test.name}
-                        description={test.description}
-                    />
-                )}
+                {test && <HomeCard key={test.test_id} test={test} />}
             </div>
         </div>
     );

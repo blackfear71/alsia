@@ -16,6 +16,10 @@ const Home = () => {
         name: '',
         description: '',
     });
+    const [formUpdate, setFormUpdate] = useState({
+        name: '',
+        description: '',
+    });
 
     useEffect(() => {
         const testService = new TestService();
@@ -63,6 +67,33 @@ const Home = () => {
         setFormData(formData);
     };
 
+    const handleUpdate = (test_id) => {
+        const testService = new TestService();
+
+        testService
+            .updateTest(test_id, formUpdate)
+            .pipe(
+                switchMap(() => testService.getAllTest()),
+                map((dataTest) => {
+                    setTest(dataTest.response);
+                    resetFormUpdate();
+                }),
+                take(1),
+                catchError((err) => {
+                    console.error(err);
+                    return of();
+                }),
+            )
+            .subscribe();
+    };
+
+    const resetFormUpdate = () => {
+        formUpdate.name = '';
+        formUpdate.description = '';
+
+        setFormData(formUpdate);
+    };
+
     const handleDelete = (test_id) => {
         const testService = new TestService();
 
@@ -101,9 +132,10 @@ const Home = () => {
                     test.map((p) => (
                         <HomeCard
                             key={p.test_id}
-                            test_id={p.test_id}
-                            name={p.name}
-                            description={p.description}
+                            test={p}
+                            formUpdate={formUpdate}
+                            setFormUpdate={setFormUpdate}
+                            onUpdate={handleUpdate}
                             onDelete={handleDelete}
                         />
                     ))}
