@@ -1,47 +1,91 @@
 <?php
-require_once 'models/Test.php';
+require_once 'services/TestService.php';
 
 class TestController
 {
-    private $model;
+    private $service;
 
     public function __construct($db)
     {
-        $this->model = new Test($db);
+        $this->service = new TestService($db);
     }
 
     public function index()
     {
-        $tests = $this->model->all();
-        echo json_encode($tests);
+        try {
+            $index = $this->service->index();
+            echo json_encode($index);
+        } catch (Exception $e) {
+            http_response_code(500);
+            echo json_encode(['error' => $e->getMessage()]);
+        }
     }
 
     public function show($id)
     {
-        $test = $this->model->find($id);
-        if ($test) {
-            echo json_encode($test);
-        } else {
-            http_response_code(404);
-            echo json_encode(['error' => 'Test non trouvé']);
+        try {
+            $show = $this->service->show($id);
+
+            if ($show) {
+                echo json_encode($show);
+            } else {
+                http_response_code(404);
+                echo json_encode(['error' => 'Test non trouvé']);
+            }
+        } catch (Exception $e) {
+            http_response_code(500);
+            echo json_encode(['error' => $e->getMessage()]);
         }
     }
 
     public function create($data)
     {
-        $created = $this->model->create($data);
-        echo json_encode($created);
+        try {
+            $created = $this->service->create($data);
+
+            if ($created) {
+                echo json_encode($created);
+            } else {
+                http_response_code(400);
+                echo json_encode(['error' => 'Test non créé']);
+            }
+        } catch (Exception $e) {
+            http_response_code(500);
+            echo json_encode(['error' => $e->getMessage()]);
+        }
     }
 
     public function update($id, $data)
     {
-        $updated = $this->model->update($id, $data);
-        echo json_encode($updated);
+        try {
+            $updated = $this->service->update($id, $data);
+
+            if ($updated) {
+                echo json_encode($updated);
+            } else {
+                http_response_code(400);
+                echo json_encode(['error' => 'Test non mis à jour']);
+            }
+        } catch (Exception $e) {
+            http_response_code(500);
+            echo json_encode(['error' => $e->getMessage()]);
+        }
     }
 
     public function delete($id)
     {
-        $deleted = $this->model->delete($id);
-        echo json_encode(['deleted' => $deleted]);
+        try {
+            $deleted = $this->service->delete($id);
+
+            if ($deleted) {
+                echo json_encode(['deleted' => $deleted]);
+            } else {
+                http_response_code(400);
+                echo json_encode(['error' => 'Test non supprimé']);
+            }
+        } catch (Exception $e) {
+            http_response_code(500);
+            echo json_encode(['error' => $e->getMessage()]);
+        }
     }
 }

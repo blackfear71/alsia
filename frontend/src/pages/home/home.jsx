@@ -10,6 +10,9 @@ import TestForm from '../../components/testForm/testForm';
 import { combineLatest, of, switchMap } from 'rxjs';
 import { catchError, map, take } from 'rxjs/operators';
 
+// TODO : voir pour utiliser des fichiers .env
+// TODO : voir pour créer un fichier de traductions/libellés
+
 const Home = () => {
     const [test, setTest] = useState([]);
     const [formData, setFormData] = useState({
@@ -53,6 +56,7 @@ const Home = () => {
                 take(1),
                 catchError((err) => {
                     // TODO : voir pour l'affichage d'un bandeau avec erreur générique
+                    // TODO : voir aussi comment gérer un tableau avec code réponse (200, 404...) et le message associé
                     console.error(err);
                     return of();
                 }),
@@ -128,7 +132,7 @@ const Home = () => {
                 onSubmit={handleSubmit}
             />
             <div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
-                {test &&
+                {test && test.length > 0 ? (
                     test.map((p) => (
                         <HomeCard
                             key={p.test_id}
@@ -138,7 +142,10 @@ const Home = () => {
                             onUpdate={handleUpdate}
                             onDelete={handleDelete}
                         />
-                    ))}
+                    ))
+                ) : (
+                    <div>Aucun enregistrement</div>
+                )}
             </div>
         </div>
     );

@@ -67,9 +67,14 @@ const HomeCard = ({ test, formUpdate, setFormUpdate, onUpdate, onDelete }) => {
                     </div>
                 )}
             </Card.Body>
-            <Button variant="primary" onClick={() => onDelete(test.test_id)}>
-                Supprimer
-            </Button>
+            {onDelete && (
+                <Button
+                    variant="primary"
+                    onClick={() => onDelete(test.test_id)}
+                >
+                    Supprimer
+                </Button>
+            )}
         </Card>
     );
 };

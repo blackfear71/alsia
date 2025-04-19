@@ -12,7 +12,7 @@ import { catchError, map, take } from 'rxjs/operators';
 const TestFeature = () => {
     const { test_id } = useParams();
 
-    const [test, setTest] = useState([]);
+    const [test, setTest] = useState();
 
     useEffect(() => {
         const testService = new TestService();
@@ -35,10 +35,14 @@ const TestFeature = () => {
     return (
         <div>
             <Link to="/">Accueil</Link>|
-            <Link to={`/testPage/${test_id}`}>Test</Link>
+            {test && <Link to={`/testPage/${test_id}`}>Test</Link>}
             <h1>Page de test</h1>
             <div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
-                {test && <HomeCard key={test.test_id} test={test} />}
+                {test ? (
+                    <HomeCard key={test.test_id} test={test} />
+                ) : (
+                    <div>Enregistrement non trouvé</div>
+                )}
             </div>
         </div>
     );
