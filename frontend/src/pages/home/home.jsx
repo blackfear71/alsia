@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import TestService from '../../api/testService';
 
 import HomeCard from '../../components/homeCard/homeCard';
+import HomePresentation from '../../components/homePresentation/homePresentation';
 import TestForm from '../../components/testForm/testForm';
 
 import { combineLatest, of, switchMap } from 'rxjs';
@@ -119,6 +120,9 @@ const Home = () => {
 
     return (
         <div>
+            {/* Cartes accueil */}
+            <HomePresentation />
+
             <Link to="/">Accueil</Link>
             {test.length > 0 && (
                 <span>
@@ -131,6 +135,7 @@ const Home = () => {
                 setFormData={setFormData}
                 onSubmit={handleSubmit}
             />
+
             <div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
                 {test && test.length > 0 ? (
                     test.map((p) => (
