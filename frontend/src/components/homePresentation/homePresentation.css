@@ -1,7 +1,7 @@
 .home-presentation-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 2rem;
+    align-items: stretch;
 }
 
 .home-presentation-left-block {
@@ -12,7 +12,22 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem;
+    padding: 10px;
+}
+
+.home-presentation-image-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    overflow: hidden;
+    flex: 1;
+}
+
+.home-presentation-image {
+    height: 230px;
+    width: auto;
+    object-fit: contain;
 }
 
 .home-presentation-right-block {
@@ -24,7 +39,7 @@
 
 .home-presentation-item-card {
     background-color: #f9f9f9;
-    padding: 1rem;
+    padding: 10px;
     border-radius: 12px;
 }
 

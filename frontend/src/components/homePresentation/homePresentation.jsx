@@ -17,12 +17,17 @@ const HomePresentation = () => {
             <Stack
                 direction="horizontal"
                 gap={3}
-                className="align-items-stretch home-presentation-container"
+                className="home-presentation-container"
             >
                 {/* Bloc gauche */}
-                <div className="home-presentation-left-block align-items-center text-center">
-                    <Image src={alsiaLogo} height={200} />
-                    <div>Titre gauche</div>
+                <div className="home-presentation-left-block">
+                    <div className="home-presentation-image-wrapper">
+                        <Image
+                            src={alsiaLogo}
+                            className="home-presentation-image"
+                        />
+                    </div>
+                    <div>Recette aléatoire</div>
                 </div>
 
                 {/* Bloc droit */}
@@ -30,9 +35,9 @@ const HomePresentation = () => {
                     gap={3}
                     className="home-presentation-right-block justify-content-between"
                 >
-                    <RightItem src={alsiaLogo} title="Bloc 1" />
-                    <RightItem src={alsiaLogo} title="Bloc 2" />
-                    <RightItem src={alsiaLogo} title="Bloc 3" />
+                    <RightItem src={alsiaLogo} title="Toutes les recettes" />
+                    <RightItem src={alsiaLogo} title="Me connecter" />
+                    <RightItem src={alsiaLogo} title="Mes favoris (connecté)" />
                 </Stack>
             </Stack>
         </Container>

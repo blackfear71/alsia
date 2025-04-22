@@ -6,6 +6,7 @@ import TestService from '../../api/testService';
 
 import HomeCard from '../../components/homeCard/homeCard';
 import HomePresentation from '../../components/homePresentation/homePresentation';
+import HomeSuggestions from '../../components/homeSuggestions/homeSuggestions';
 import TestForm from '../../components/testForm/testForm';
 
 import { combineLatest, of, switchMap } from 'rxjs';
@@ -122,6 +123,9 @@ const Home = () => {
         <div>
             {/* Cartes accueil */}
             <HomePresentation />
+
+            {/* Suggestions */}
+            <HomeSuggestions />
 
             <Link to="/">Accueil</Link>
             {test.length > 0 && (
