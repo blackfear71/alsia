@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 import TestService from '../../api/testService';
 
+import HomeAccess from '../../components/homeAccess/homeAccess';
 import HomeCard from '../../components/homeCard/homeCard';
 import HomePresentation from '../../components/homePresentation/homePresentation';
 import HomeSuggestions from '../../components/homeSuggestions/homeSuggestions';
@@ -126,6 +127,9 @@ const Home = () => {
 
             {/* Suggestions */}
             <HomeSuggestions />
+
+            {/* Accès */}
+            <HomeAccess />
 
             <Link to="/">Accueil</Link>
             {test.length > 0 && (
